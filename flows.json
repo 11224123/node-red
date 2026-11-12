@@ -1,0 +1,1465 @@
+[
+    {
+        "id": "54a00d849caf8b93",
+        "type": "tab",
+        "label": "流程1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1000000000000001",
+        "type": "tab",
+        "label": "智慧教室感測器",
+        "disabled": false,
+        "info": "智慧教室溫度與濕度 MQTT 專題"
+    },
+    {
+        "id": "10a700b1acb84537",
+        "type": "tab",
+        "label": "A組｜燈光控制",
+        "disabled": false,
+        "info": "控制指令 → MQTT"
+    },
+    {
+        "id": "c3c5a4d9666a4253",
+        "type": "tab",
+        "label": "B組｜模擬設備",
+        "disabled": false,
+        "info": "MQTT指令 → 模擬設備 → 狀態回傳"
+    },
+    {
+        "id": "6b189f083c456bd0",
+        "type": "tab",
+        "label": "C組｜訊息發布【新版】",
+        "disabled": false,
+        "info": "純文字 MQTT 發布端"
+    },
+    {
+        "id": "983344dea33fda0f",
+        "type": "tab",
+        "label": "C組｜全班接收【新版】",
+        "disabled": false,
+        "info": "全班 wildcard 訂閱接收端"
+    },
+    {
+        "id": "f403c195fdc48015",
+        "type": "mqtt-broker",
+        "name": "mqtt.ridgerealm.com",
+        "broker": "mqtt.ridgerealm.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1000000000000008",
+        "type": "mqtt-broker",
+        "name": "MQTT Broker",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "6eeffc9fdcc840c1",
+        "type": "mqtt-broker",
+        "name": "公共測試 Broker",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {}
+    },
+    {
+        "id": "d3cb8d845a4140a1",
+        "type": "ui_tab",
+        "name": "Smart Light Control",
+        "icon": "lightbulb_outline",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2b7a8bcb67684a50",
+        "type": "ui_group",
+        "name": "智慧燈光控制",
+        "tab": "d3cb8d845a4140a1",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "e46d25200f8d76b8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "43f575da32554481",
+        "type": "mqtt-broker",
+        "name": "公共 MQTT 測試主機",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {}
+    },
+    {
+        "id": "10d97b2d5cf0432e",
+        "type": "ui_tab",
+        "name": "專題C｜班級廣播",
+        "icon": "forum",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "23c67d2816d54246",
+        "type": "ui_group",
+        "name": "訊息發布與接收",
+        "tab": "10d97b2d5cf0432e",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "27a410d2d7b147ab",
+        "type": "mqtt-broker",
+        "name": "專題C MQTT 公共測試",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {}
+    },
+    {
+        "id": "bf5bdc3cc05541ff",
+        "type": "ui_tab",
+        "name": "C組｜全班訊息廣播【純文字】",
+        "icon": "forum",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2d20d1fb6d3d488d",
+        "type": "ui_group",
+        "name": "訊息發布（輸入後按 Enter）",
+        "tab": "bf5bdc3cc05541ff",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c3b02daf8ac2448d",
+        "type": "ui_group",
+        "name": "全班訊息接收（所有人可看）",
+        "tab": "bf5bdc3cc05541ff",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "64966d1936b6194f",
+        "type": "mqtt in",
+        "z": "54a00d849caf8b93",
+        "name": "",
+        "topic": "AIOT/user10/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "f403c195fdc48015",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "813d3336c82b3c97"
+            ]
+        ]
+    },
+    {
+        "id": "813d3336c82b3c97",
+        "type": "debug",
+        "z": "54a00d849caf8b93",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "334fcfbd107cef3d",
+        "type": "inject",
+        "z": "54a00d849caf8b93",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "AIOT/user10/溫度",
+        "payload": "{\"溫度\": 25,\"時間\": 10}",
+        "payloadType": "json",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "96d5c55a933867b2"
+            ]
+        ]
+    },
+    {
+        "id": "96d5c55a933867b2",
+        "type": "mqtt out",
+        "z": "54a00d849caf8b93",
+        "name": "推撥",
+        "topic": "",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1000000000000002",
+        "type": "inject",
+        "z": "1000000000000001",
+        "name": "每30秒感測一次",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "1000000000000003"
+            ]
+        ]
+    },
+    {
+        "id": "1000000000000003",
+        "type": "function",
+        "z": "1000000000000001",
+        "name": "產生三間教室感測資料",
+        "func": "let rooms = [\"A\", \"B\", \"C\"];\nlet temperatures = [];\nlet humidities = [];\n\nrooms.forEach(room => {\n    temperatures.push({\n        room: room,\n        temperature: Number((23 + Math.random() * 7).toFixed(1))\n    });\n    humidities.push({\n        room: room,\n        humidity: Number((40 + Math.random() * 30).toFixed(1))\n    });\n});\n\nlet tempMsg = {\n    topic: \"AIOT/user1/sensor/temperature\",\n    payload: JSON.stringify(temperatures)\n};\n\nlet humidityMsg = {\n    topic: \"AIOT/user1/sensor/humidity\",\n    payload: JSON.stringify(humidities)\n};\n\nreturn [tempMsg, humidityMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "1000000000000004"
+            ],
+            [
+                "1000000000000005"
+            ]
+        ]
+    },
+    {
+        "id": "1000000000000004",
+        "type": "mqtt out",
+        "z": "1000000000000001",
+        "name": "Publish 溫度",
+        "topic": "AIOT/user10/sensor/temperature",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1000000000000005",
+        "type": "mqtt out",
+        "z": "1000000000000001",
+        "name": "Publish 濕度",
+        "topic": "AIOT/user10/sensor/humidity",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1000000000000006",
+        "type": "mqtt in",
+        "z": "1000000000000001",
+        "name": "訂閱所有組別感測資料",
+        "topic": "AIOT/+/sensor/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "f403c195fdc48015",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 340,
+        "wires": [
+            [
+                "1000000000000007"
+            ]
+        ]
+    },
+    {
+        "id": "1000000000000007",
+        "type": "debug",
+        "z": "1000000000000001",
+        "name": "顯示教室感測資料",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8ee30ecb4ae043f6",
+        "type": "function",
+        "z": "10a700b1acb84537",
+        "name": "產生 Kitchen 控制指令",
+        "func": "msg.topic = \"AIOT/user2/control/led\";\nmsg.payload = JSON.stringify({ device: \"kitchen\", brightness: Number(msg.payload) });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "9e9862ee1340414d",
+                "f53868177c9643e5"
+            ]
+        ]
+    },
+    {
+        "id": "a1d2e51c694644cd",
+        "type": "function",
+        "z": "10a700b1acb84537",
+        "name": "產生 Living Room 控制指令",
+        "func": "msg.topic = \"AIOT/user2/control/led\";\nmsg.payload = JSON.stringify({ device: \"living_room\", brightness: Number(msg.payload) });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 250,
+        "wires": [
+            [
+                "9e9862ee1340414d",
+                "f53868177c9643e5"
+            ]
+        ]
+    },
+    {
+        "id": "3ef424423ef642ca",
+        "type": "function",
+        "z": "10a700b1acb84537",
+        "name": "產生 Bedroom 控制指令",
+        "func": "msg.topic = \"AIOT/user2/control/led\";\nmsg.payload = JSON.stringify({ device: \"bedroom\", brightness: Number(msg.payload) });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "9e9862ee1340414d",
+                "f53868177c9643e5"
+            ]
+        ]
+    },
+    {
+        "id": "9e9862ee1340414d",
+        "type": "mqtt out",
+        "z": "10a700b1acb84537",
+        "name": "A組：發送控制",
+        "topic": "AIOT/user10/control/led",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f53868177c9643e5",
+        "type": "debug",
+        "z": "10a700b1acb84537",
+        "name": "已送出的控制指令",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 285,
+        "wires": []
+    },
+    {
+        "id": "250d369279ed4e18",
+        "type": "mqtt in",
+        "z": "10a700b1acb84537",
+        "name": "A組：接收狀態",
+        "topic": "AIOT/user10/status/led",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "f403c195fdc48015",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "6bd7b3beda2d4cde",
+                "9b8f448c222b48f2"
+            ]
+        ]
+    },
+    {
+        "id": "6bd7b3beda2d4cde",
+        "type": "function",
+        "z": "10a700b1acb84537",
+        "name": "顯示回傳狀態",
+        "func": "let d;\ntry { d = typeof msg.payload === \"string\" ? JSON.parse(msg.payload) : msg.payload; } catch(e) { return null; }\nif (!d || !d.device) return null;\nconst names = {kitchen:\"Kitchen\",living_room:\"Living Room\",bedroom:\"Bedroom\"};\nmsg.payload = (names[d.device] || d.device) + \"：\" + (d.on ? \"開啟\" : \"關閉\") + \"｜亮度 \" + d.brightness + \"%\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "5276d2ddd1e74df5"
+            ]
+        ]
+    },
+    {
+        "id": "9b8f448c222b48f2",
+        "type": "debug",
+        "z": "10a700b1acb84537",
+        "name": "收到的設備狀態",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "bcac03c4b60749ab",
+        "type": "ui_slider",
+        "z": "10a700b1acb84537",
+        "name": "Kitchen 亮度",
+        "label": "Kitchen",
+        "tooltip": "0 = 關閉，1~100 = 亮度",
+        "group": "2b7a8bcb67684a50",
+        "order": 1,
+        "width": "8",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "kitchen",
+        "topicType": "str",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "className": "",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "8ee30ecb4ae043f6"
+            ]
+        ]
+    },
+    {
+        "id": "d1dba41fa04649b2",
+        "type": "ui_slider",
+        "z": "10a700b1acb84537",
+        "name": "Living Room 亮度",
+        "label": "Living Room",
+        "tooltip": "0 = 關閉，1~100 = 亮度",
+        "group": "2b7a8bcb67684a50",
+        "order": 2,
+        "width": "8",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "living_room",
+        "topicType": "str",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "className": "",
+        "x": 170,
+        "y": 250,
+        "wires": [
+            [
+                "a1d2e51c694644cd"
+            ]
+        ]
+    },
+    {
+        "id": "c937f5c2df0e43dd",
+        "type": "ui_slider",
+        "z": "10a700b1acb84537",
+        "name": "Bedroom 亮度",
+        "label": "Bedroom",
+        "tooltip": "0 = 關閉，1~100 = 亮度",
+        "group": "2b7a8bcb67684a50",
+        "order": 3,
+        "width": "8",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "bedroom",
+        "topicType": "str",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "className": "",
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "3ef424423ef642ca"
+            ]
+        ]
+    },
+    {
+        "id": "5276d2ddd1e74df5",
+        "type": "ui_text",
+        "z": "10a700b1acb84537",
+        "group": "2b7a8bcb67684a50",
+        "order": 4,
+        "width": "8",
+        "height": "1",
+        "name": "設備回傳狀態",
+        "label": "最新設備狀態",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#111111",
+        "x": 650,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1e43bebed498421a",
+        "type": "mqtt in",
+        "z": "c3c5a4d9666a4253",
+        "name": "B組：接收控制指令",
+        "topic": "AIOT/user10/control/led",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "f403c195fdc48015",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "f1f99efba6524947"
+            ]
+        ]
+    },
+    {
+        "id": "f1f99efba6524947",
+        "type": "function",
+        "z": "c3c5a4d9666a4253",
+        "name": "模擬燈光設備並回傳",
+        "func": "let d;\ntry { d = typeof msg.payload === \"string\" ? JSON.parse(msg.payload) : msg.payload; } catch(e) { node.warn(\"控制指令不是 JSON\"); return null; }\nconst allowed = [\"kitchen\",\"living_room\",\"bedroom\"];\nif (!d || !allowed.includes(d.device)) return null;\nconst brightness = Math.max(0, Math.min(100, Math.round(Number(d.brightness) || 0)));\nconst state = flow.get(\"lights\") || {};\nstate[d.device] = { device:d.device, brightness:brightness, on:brightness > 0 };\nflow.set(\"lights\", state);\nmsg.topic = \"AIOT/user2/status/led\";\nmsg.payload = JSON.stringify(state[d.device]);\nnode.status({fill: brightness > 0 ? \"green\":\"grey\",shape:\"dot\",text:d.device + \"：\" + brightness + \"%\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "97ee5f6209864c8f",
+                "1ae366a1af8a4822"
+            ]
+        ]
+    },
+    {
+        "id": "97ee5f6209864c8f",
+        "type": "mqtt out",
+        "z": "c3c5a4d9666a4253",
+        "name": "B組：回傳設備狀態",
+        "topic": "AIOT/user10/status/led",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1ae366a1af8a4822",
+        "type": "debug",
+        "z": "c3c5a4d9666a4253",
+        "name": "B組模擬執行結果",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 230,
+        "wires": []
+    },
+    {
+        "id": "6e764add2c917d7c",
+        "type": "comment",
+        "z": "6b189f083c456bd0",
+        "name": "純文字發布：不包 JSON。請在 Dashboard 輸入文字後按 Enter。",
+        "info": "",
+        "x": 350,
+        "y": 55,
+        "wires": []
+    },
+    {
+        "id": "9a59d922cb69d2c6",
+        "type": "ui_text_input",
+        "z": "6b189f083c456bd0",
+        "name": "公告輸入",
+        "label": "📢 公告（按 Enter 發布）",
+        "tooltip": "",
+        "group": "2d20d1fb6d3d488d",
+        "order": 1,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "announcement",
+        "x": 140,
+        "y": 135,
+        "wires": [
+            [
+                "84addfe876cf452b"
+            ]
+        ]
+    },
+    {
+        "id": "8abc34655fc47469",
+        "type": "inject",
+        "z": "6b189f083c456bd0",
+        "name": "測試公告",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "announcement",
+        "payload": "明天早上九點準時上課",
+        "payloadType": "str",
+        "x": 130,
+        "y": 185,
+        "wires": [
+            [
+                "84addfe876cf452b"
+            ]
+        ]
+    },
+    {
+        "id": "84addfe876cf452b",
+        "type": "function",
+        "z": "6b189f083c456bd0",
+        "name": "轉成純文字：公告",
+        "func": "// 只發字串，避免接收端看到 [object Object]\nlet value = msg.payload;\nif (value !== null && typeof value === \"object\") {\n    value = value.content ?? value.message ?? value.text ?? JSON.stringify(value);\n}\nconst content = String(value ?? \"\").trim();\nif (!content) return null;\nmsg.topic = \"AIOT/user3/message/announcement\";\nmsg.payload = content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 155,
+        "wires": [
+            [
+                "1e3337b171991270",
+                "450c2c07543def70"
+            ]
+        ]
+    },
+    {
+        "id": "1e3337b171991270",
+        "type": "mqtt out",
+        "z": "6b189f083c456bd0",
+        "name": "公告 MQTT 發布",
+        "topic": "AIOT/user10/message/announcement",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 650,
+        "y": 135,
+        "wires": []
+    },
+    {
+        "id": "450c2c07543def70",
+        "type": "debug",
+        "z": "6b189f083c456bd0",
+        "name": "公告發布文字",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 190,
+        "wires": []
+    },
+    {
+        "id": "25c9a00f76832854",
+        "type": "ui_text_input",
+        "z": "6b189f083c456bd0",
+        "name": "警報輸入",
+        "label": "🚨 警報（按 Enter 發布）",
+        "tooltip": "",
+        "group": "2d20d1fb6d3d488d",
+        "order": 3,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "alert",
+        "x": 140,
+        "y": 305,
+        "wires": [
+            [
+                "c7a7827b265b8682"
+            ]
+        ]
+    },
+    {
+        "id": "435fc80e22c7577d",
+        "type": "inject",
+        "z": "6b189f083c456bd0",
+        "name": "測試警報",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "alert",
+        "payload": "警報測試：請注意安全",
+        "payloadType": "str",
+        "x": 130,
+        "y": 355,
+        "wires": [
+            [
+                "c7a7827b265b8682"
+            ]
+        ]
+    },
+    {
+        "id": "c7a7827b265b8682",
+        "type": "function",
+        "z": "6b189f083c456bd0",
+        "name": "轉成純文字：警報",
+        "func": "// 只發字串，避免接收端看到 [object Object]\nlet value = msg.payload;\nif (value !== null && typeof value === \"object\") {\n    value = value.content ?? value.message ?? value.text ?? JSON.stringify(value);\n}\nconst content = String(value ?? \"\").trim();\nif (!content) return null;\nmsg.topic = \"AIOT/user3/message/alert\";\nmsg.payload = content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 325,
+        "wires": [
+            [
+                "38eae471e7d29d89",
+                "62d368dc34003237"
+            ]
+        ]
+    },
+    {
+        "id": "38eae471e7d29d89",
+        "type": "mqtt out",
+        "z": "6b189f083c456bd0",
+        "name": "警報 MQTT 發布",
+        "topic": "AIOT/user10/message/alert",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 650,
+        "y": 305,
+        "wires": []
+    },
+    {
+        "id": "62d368dc34003237",
+        "type": "debug",
+        "z": "6b189f083c456bd0",
+        "name": "警報發布文字",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9d1d9611c2ad3636",
+        "type": "ui_text_input",
+        "z": "6b189f083c456bd0",
+        "name": "狀態輸入",
+        "label": "✅ 狀態（按 Enter 發布）",
+        "tooltip": "",
+        "group": "2d20d1fb6d3d488d",
+        "order": 5,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "status",
+        "x": 140,
+        "y": 475,
+        "wires": [
+            [
+                "98e116ee5d06ec24"
+            ]
+        ]
+    },
+    {
+        "id": "79761ecff87793e5",
+        "type": "inject",
+        "z": "6b189f083c456bd0",
+        "name": "測試狀態",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "status",
+        "payload": "今日設備運作正常",
+        "payloadType": "str",
+        "x": 130,
+        "y": 525,
+        "wires": [
+            [
+                "98e116ee5d06ec24"
+            ]
+        ]
+    },
+    {
+        "id": "98e116ee5d06ec24",
+        "type": "function",
+        "z": "6b189f083c456bd0",
+        "name": "轉成純文字：狀態",
+        "func": "// 只發字串，避免接收端看到 [object Object]\nlet value = msg.payload;\nif (value !== null && typeof value === \"object\") {\n    value = value.content ?? value.message ?? value.text ?? JSON.stringify(value);\n}\nconst content = String(value ?? \"\").trim();\nif (!content) return null;\nmsg.topic = \"AIOT/user3/message/status\";\nmsg.payload = content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 495,
+        "wires": [
+            [
+                "c4b81fe7f7b4f6bc",
+                "cb39cfbc622ad210"
+            ]
+        ]
+    },
+    {
+        "id": "c4b81fe7f7b4f6bc",
+        "type": "mqtt out",
+        "z": "6b189f083c456bd0",
+        "name": "狀態 MQTT 發布",
+        "topic": "AIOT/user10/message/status",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f403c195fdc48015",
+        "x": 650,
+        "y": 475,
+        "wires": []
+    },
+    {
+        "id": "cb39cfbc622ad210",
+        "type": "debug",
+        "z": "6b189f083c456bd0",
+        "name": "狀態發布文字",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 530,
+        "wires": []
+    },
+    {
+        "id": "771c27d70ccd8916",
+        "type": "inject",
+        "z": "6b189f083c456bd0",
+        "name": "一鍵測試：發布測試警報",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "測試警報：收到請回覆",
+        "payloadType": "str",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "c7a7827b265b8682"
+            ]
+        ]
+    },
+    {
+        "id": "b176e413a21d83aa",
+        "type": "comment",
+        "z": "983344dea33fda0f",
+        "name": "Wildcard: AIOT/user3/message/#，收到 JSON 也會擷取 content/message/text 為文字",
+        "info": "",
+        "x": 365,
+        "y": 55,
+        "wires": []
+    },
+    {
+        "id": "b6047e052bbef66b",
+        "type": "mqtt in",
+        "z": "983344dea33fda0f",
+        "name": "全班訂閱 AIOT/user3/message/#",
+        "topic": "AIOT/user10/message/#",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "f403c195fdc48015",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 150,
+        "wires": [
+            [
+                "2384052e03a8d9b3",
+                "970e849c25f554f0"
+            ]
+        ]
+    },
+    {
+        "id": "2384052e03a8d9b3",
+        "type": "function",
+        "z": "983344dea33fda0f",
+        "name": "解析訊息並轉純文字",
+        "func": "// 接收任何文字或 JSON，轉成可以顯示的文字\nlet p = msg.payload;\nif (typeof p === 'string') {\n  const s = p.trim();\n  if (s.startsWith('{')) {\n    try { p = JSON.parse(s); } catch (e) { p = s; }\n  }\n}\nif (p !== null && typeof p === 'object') {\n  p = p.content ?? p.message ?? p.text ?? JSON.stringify(p);\n}\nconst content = String(p ?? '');\nconst kind = String(msg.topic || '').split('/').pop();\nconst names = {announcement:'公告',alert:'警報',status:'狀態'};\nconst label = names[kind] || '其他';\nconst history = flow.get('broadcast_history') || [];\nhistory.unshift('【' + label + '】' + content);\nif (history.length > 30) history.length = 30;\nflow.set('broadcast_history',history);\nconst totals=flow.get('broadcast_totals') || {announcement:0,alert:0,status:0};\ntotals[kind]=(totals[kind] || 0)+1;\nflow.set('broadcast_totals',totals);\nreturn [\n  {payload:history.join('\\n')},\n  {payload:'公告 '+totals.announcement+' 則｜警報 '+totals.alert+' 則｜狀態 '+totals.status+' 則'},\n  {topic:msg.topic,payload:content}\n];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 150,
+        "wires": [
+            [
+                "6bf4dcb1245b9933"
+            ],
+            [
+                "2946d120d6375058"
+            ],
+            [
+                "41ace54a127e51af"
+            ]
+        ]
+    },
+    {
+        "id": "6bf4dcb1245b9933",
+        "type": "ui_text",
+        "z": "983344dea33fda0f",
+        "group": "c3b02daf8ac2448d",
+        "order": 10,
+        "width": "12",
+        "height": "8",
+        "name": "全班訊息列表（純文字）",
+        "label": "📨 收到的訊息（最多 30 則）",
+        "format": "<pre style=\"white-space:pre-wrap; overflow-wrap:anywhere; max-height:360px; overflow-y:auto; font-size:14px; text-align:left\">{{msg.payload}}</pre>",
+        "layout": "col-center",
+        "className": "",
+        "x": 750,
+        "y": 110,
+        "wires": []
+    },
+    {
+        "id": "2946d120d6375058",
+        "type": "ui_text",
+        "z": "983344dea33fda0f",
+        "group": "c3b02daf8ac2448d",
+        "order": 11,
+        "width": "12",
+        "height": "1",
+        "name": "訊息數量",
+        "label": "統計",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 735,
+        "y": 165,
+        "wires": []
+    },
+    {
+        "id": "41ace54a127e51af",
+        "type": "debug",
+        "z": "983344dea33fda0f",
+        "name": "收件純文字",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 745,
+        "y": 230,
+        "wires": []
+    },
+    {
+        "id": "1913113c41106521",
+        "type": "ui_button",
+        "z": "983344dea33fda0f",
+        "name": "清除本地紀錄",
+        "group": "c3b02daf8ac2448d",
+        "order": 12,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "清除訊息紀錄",
+        "tooltip": "只清除這台 Node-RED 儲存的訊息",
+        "color": "",
+        "bgcolor": "#475569",
+        "className": "",
+        "icon": "delete",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 160,
+        "y": 310,
+        "wires": [
+            [
+                "914182cfdb0b0514"
+            ]
+        ]
+    },
+    {
+        "id": "914182cfdb0b0514",
+        "type": "function",
+        "z": "983344dea33fda0f",
+        "name": "清除接收紀錄",
+        "func": "flow.set('broadcast_history',[]);flow.set('broadcast_totals',{announcement:0,alert:0,status:0});return [{payload:'（尚無訊息）'},{payload:'公告 0 則｜警報 0 則｜狀態 0 則'}];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 310,
+        "wires": [
+            [
+                "6bf4dcb1245b9933"
+            ],
+            [
+                "2946d120d6375058"
+            ]
+        ]
+    },
+    {
+        "id": "970e849c25f554f0",
+        "type": "debug",
+        "z": "983344dea33fda0f",
+        "name": "① MQTT 收到原始訊息",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 530,
+        "y": 230,
+        "wires": []
+    },
+    {
+        "id": "e788f3962241f98b",
+        "type": "status",
+        "z": "983344dea33fda0f",
+        "name": "監看 MQTT 連線狀態",
+        "scope": [
+            "1e3337b171991270",
+            "38eae471e7d29d89",
+            "c4b81fe7f7b4f6bc",
+            "b6047e052bbef66b"
+        ],
+        "x": 180,
+        "y": 390,
+        "wires": [
+            [
+                "4c96b3b5ef2559e0"
+            ]
+        ]
+    },
+    {
+        "id": "4c96b3b5ef2559e0",
+        "type": "debug",
+        "z": "983344dea33fda0f",
+        "name": "③ MQTT 連線狀態",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 475,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "19a1cfb12ede88ff",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
